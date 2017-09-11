@@ -1,11 +1,14 @@
-ul {
-  padding: 1vw 2vw;
+.navbar {
+  float: left;
+}
+
+.fa {
+  float: left;
 }
 
 li {
   list-style: none;
-  display: inline-block;
-  padding: 0 2vw;
+  padding: 1vh 0;
   font-size: 3vh;
 }
 

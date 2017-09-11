@@ -1,0 +1,15 @@
+ul {
+  padding: 1vw 2vw;
+}
+
+li {
+  list-style: none;
+  display: inline-block;
+  padding: 0 2vw;
+  font-size: 3vh;
+}
+
+.icon {
+  float: right;
+  padding: 0 .5vw;
+}

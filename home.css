@@ -9,7 +9,6 @@
 
 .navbar li {
   list-style: none;
-  padding: 1vh 0;
   font-size: 3vh;
 }
 
@@ -18,3 +17,12 @@
   padding: 0 .5vw;
   list-style: none;
 }
+
+/*@media all and (min-width: 780px){
+  .fa-bars {
+    display: none;
+  }
+  .navbar{
+    display: inline-block;
+  }
+}*/

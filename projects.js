@@ -13,7 +13,8 @@ new Project('Salmon Cookies', 'August 2017', 'August 2017', 'Prototype business 
 
 $(document).ready(function(){
   for (var i = 0; i < projects.length; i++){
-    var project = $('<p>' + projects[i].name + '</p>');
+    var project = $('<p>' + projects[i].name + '<br />' + projects[i].startDate + ' to ' + projects[i].endDate + '<br />' + projects[i].description + '</p>');
+    project.addClass('project');
     $('body').append(project);
   }
 })

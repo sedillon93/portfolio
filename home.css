@@ -1,12 +1,13 @@
 .navbar {
   float: left;
+  display: none;
 }
 
 .fa {
   float: left;
 }
 
-li {
+.navbar li {
   list-style: none;
   padding: 1vh 0;
   font-size: 3vh;
@@ -15,4 +16,5 @@ li {
 .icon {
   float: right;
   padding: 0 .5vw;
+  list-style: none;
 }

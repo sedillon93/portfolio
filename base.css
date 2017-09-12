@@ -44,6 +44,7 @@ a {
   float: right;
   padding: 2vh 3vw 0 0;
   list-style: none;
+  font-size: 5vh;
 }
 
 @media all and (min-width: 800px){
@@ -72,8 +73,5 @@ a {
     float: right;
     padding: 2vh 1vw 0 0;
     list-style: none;
-  }
-  .icon a {
-    font-size: 5vh;
   }
 }

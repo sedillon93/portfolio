@@ -1,3 +1,11 @@
+*{
+  box-sizing: border-box;
+}
+
+ul {
+  overflow: auto;
+}
+
 .navbar {
   float: left;
   display: none;
@@ -12,6 +20,7 @@
 .navbar li {
   list-style: none;
   font-size: 3vh;
+  margin: 4vh 0;
 }
 
 .icon {
@@ -24,18 +33,33 @@
   font-family: 'Amatic SC', cursive;
   text-align: center;
   font-size: 3vh;
-  margin-top: 15vh;
+  margin-top: 10vh;
   background-color: rgba(255, 255, 255, .5);
+  position: absolute;
+  top: 4vh;
+  left: 12vw;
 }
 
-@media all and (min-width: 780px){
+@media all and (min-width: 800px){
+  .topBar {
+    background-color: #0D47A1;
+    height: 8vh;
+  }
   #hamburgerMenu {
     display: none;
   }
-  .navbar{
+  .navbar {
+    display: block;
+    padding: 2%;
+    width: 90vw;
+  }
+  .navItem{
     display: inline;
+    margin: 0 5vw;
+    color: white;
   }
   .connect {
+    width: 10vw;
     padding: 1vh 2vw 0 0;
   }
   .icon {
@@ -44,9 +68,12 @@
     list-style: none;
     font-size: 3.5vh;
   }
+  .fa {
+    color: white;
+  }
   .hookStatement {
     font-size: 8vh;
-    margin-top: 50vh;
+    margin-top: 45vh;
     text-align: center;
   }
 }

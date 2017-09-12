@@ -16,7 +16,7 @@ new Job('Elementary Center Instructional Assistant', 'St. Thomas School', 'Augus
 $(document).ready(function(){
   for (var i = 0; i < jobs.length; i++){
     var job = $('<p>' + jobs[i].name + '<br />' + jobs[i].employer + '<br />' + 'From ' + jobs[i].startDate + 'to ' + jobs[i].endDate + '<br />' + jobs[i].description + '</p>');
-    job.attr('class', 'job');
+    job.addClass('job');
     $('body').append(job);
   }
 })

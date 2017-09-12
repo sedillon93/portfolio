@@ -12,5 +12,8 @@ function Project(name, startDate, endDate, description){
 new Project('Salmon Cookies', 'August 2017', 'August 2017', 'Prototype business website to track cookie sales at different store locations; Create customer-facing website advertising the business.');
 
 $(document).ready(function(){
-  $('').appendTo('body');
+  for (var i = 0; i < projects.length; i++){
+    var project = $('<p>' + projects[i].name + '</p>');
+    $('body').append(project);
+  }
 })

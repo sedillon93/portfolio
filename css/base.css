@@ -20,6 +20,7 @@ ul {
 .navbar {
   float: left;
   display: none;
+  width: 85vw;
 }
 
 #hamburgerMenu {
@@ -32,6 +33,11 @@ ul {
 .navbar li {
   list-style: none;
   font-size: 3vh;
+}
+
+.connect {
+  float: right;
+  width: 15vw;
 }
 
 .icon a {
@@ -58,7 +64,7 @@ ul {
   .navbar {
     display: block;
     padding: 2%;
-    width: 90vw;
+    width: 80vw;
   }
   .navItem{
     display: inline;
@@ -66,7 +72,7 @@ ul {
     color: white;
   }
   .connect {
-    width: 10vw;
+    width: 20vw;
     padding: 1vh 2vw 0 0;
   }
   .icon {

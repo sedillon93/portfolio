@@ -1,0 +1,69 @@
+.topBar {
+  background-color: rgba(13, 71, 161, .6);
+  height: 7vh;
+}
+
+.navbar {
+  float: left;
+  display: none;
+  width: 20vw;
+}
+
+#hamburgerMenu {
+  float: left;
+  padding: 3vw 0 3vw 3vw;
+  font-size: 5vh;
+  color: white;
+}
+
+.navbar li {
+  list-style: none;
+  font-size: 3vh;
+}
+
+.connect {
+  float: right;
+  width: 80vw;
+}
+
+.icon a {
+  color: white;
+  text-decoration: none;
+  margin: 4vh 0;
+}
+
+.icon {
+  float: right;
+  padding: 2vh 3vw 0 0;
+  list-style: none;
+  font-size: 5vh;
+}
+
+@media all and (min-width: 800px){
+  .topBar {
+    background-color: rgba(13, 71, 161, .6);
+    height: 7vh;
+  }
+  #hamburgerMenu {
+    display: none;
+  }
+  .navbar {
+    display: block;
+    padding: 2%;
+    width: 80vw;
+  }
+  .navItem{
+    display: inline;
+    padding: 2vh 1vw 0 0;
+    color: white;
+  }
+  .connect {
+    width: 20vw;
+    padding: 1vh 2vw 0 0;
+  }
+  .icon {
+    float: right;
+    padding: 2vh 1vw 0 0;
+    list-style: none;
+  }
+}

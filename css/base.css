@@ -16,9 +16,8 @@ a {
   text-decoration: none;
 }
 
-
-*{
-  box-sizing: border-box;
+.fa {
+  color: white;
 }
 
 .topBar {
@@ -35,24 +34,23 @@ a {
   font-size: 3vh;
 }
 
-.icon a {
+.navItem a:visited{
   color: white;
   text-decoration: none;
 }
 
-.icon {
+.connect li {
   list-style: none;
   font-size: 5vh;
+  display: inline;
 }
 
 @media all and (min-width: 800px){
   .topBar {
     background-color: rgba(13, 71, 161, .6);
   }
+
   .navItem{
     color: white;
-  }
-  .icon {
-    list-style: none;
   }
 }

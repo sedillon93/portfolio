@@ -15,7 +15,7 @@
 
 #hamburgerMenu {
   float: left;
-  padding: 2vw 0 3vw 3vw;
+  padding: 2vw 0 0 3vw;
   font-size: 5vh;
   color: white;
 }
@@ -53,12 +53,12 @@
   }
   .navbar {
     display: block;
-    padding: 2%;
+    padding: 2% 0 0 2%;
     width: 80vw;
   }
   .navItem{
     display: inline;
-    padding: 2vh 1vw 0 0;
+    padding: 2vh 4vw 0 0;
     color: white;
   }
   .connect {

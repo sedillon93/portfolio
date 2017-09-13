@@ -24,8 +24,8 @@ Project.prototype.toHtml = function(){
                 .text(this.startDate + ' to ' + this.endDate);
   $newProject.find('#description')
                 .text(this.description);
-  $newProject.find('#link a')
-                .html('<a href="' + this.link + '">' + 'here' + '</a>');
+  $newProject.find('#link')
+                .attr('href', this.link);
   $newProject.appendTo('#projectDisplay');
 }
 

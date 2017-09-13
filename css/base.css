@@ -11,3 +11,48 @@ body {
 ul {
   overflow: auto;
 }
+
+a {
+  text-decoration: none;
+}
+
+
+*{
+  box-sizing: border-box;
+}
+
+.topBar {
+  background-color: rgba(13, 71, 161, .6);
+}
+
+#hamburgerMenu {
+  font-size: 5vh;
+  color: white;
+}
+
+.navbar li {
+  list-style: none;
+  font-size: 3vh;
+}
+
+.icon a {
+  color: white;
+  text-decoration: none;
+}
+
+.icon {
+  list-style: none;
+  font-size: 5vh;
+}
+
+@media all and (min-width: 800px){
+  .topBar {
+    background-color: rgba(13, 71, 161, .6);
+  }
+  .navItem{
+    color: white;
+  }
+  .icon {
+    list-style: none;
+  }
+}

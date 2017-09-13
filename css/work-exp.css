@@ -2,3 +2,11 @@
   margin: 5vh 0 0 5vw;
   font-size: 3vh;
 }
+
+#jobTemplate {
+  display: none;
+}
+
+.jobDisplay {
+  float: left;
+}

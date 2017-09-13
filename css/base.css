@@ -12,19 +12,19 @@ ul {
   overflow: auto;
 }
 
-.topBar {
-  background-color: rgba(13, 71, 161, .6);
-  height: 7vh;
+a {
+  text-decoration: none;
 }
 
-.navbar {
-  float: left;
-  display: none;
+.fa {
+  color: white;
+}
+
+.topBar {
+  background-color: rgba(13, 71, 161, .6);
 }
 
 #hamburgerMenu {
-  float: left;
-  padding: 3vw 0 3vw 3vw;
   font-size: 5vh;
   color: white;
 }
@@ -34,44 +34,23 @@ ul {
   font-size: 3vh;
 }
 
-a {
+.navItem a:visited{
   color: white;
   text-decoration: none;
-  margin: 4vh 0;
 }
 
-.icon {
-  float: right;
-  padding: 2vh 3vw 0 0;
+.connect li {
   list-style: none;
   font-size: 5vh;
+  display: inline;
 }
 
 @media all and (min-width: 800px){
   .topBar {
     background-color: rgba(13, 71, 161, .6);
-    height: 7vh;
   }
-  #hamburgerMenu {
-    display: none;
-  }
-  .navbar {
-    display: block;
-    padding: 2%;
-    width: 90vw;
-  }
+
   .navItem{
-    display: inline;
-    padding: 2vh 1vw 0 0;
     color: white;
-  }
-  .connect {
-    width: 10vw;
-    padding: 1vh 2vw 0 0;
-  }
-  .icon {
-    float: right;
-    padding: 2vh 1vw 0 0;
-    list-style: none;
   }
 }

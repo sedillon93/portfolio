@@ -1,0 +1,15 @@
+.job {
+  padding: 2vw;
+  margin: 5vh 0 0 5vw;
+  font-size: 4vh;
+  background-color: rgba(255,255,255,.5);
+}
+
+#jobTemplate {
+  display: none;
+}
+
+.jobDisplay {
+  margin: auto;
+  width: 90vw;
+}

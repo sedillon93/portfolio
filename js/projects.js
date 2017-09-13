@@ -15,7 +15,9 @@ var busMall = new Project('Bus Mall focus group', 'August 2017', 'August 2017', 
 
 Project.prototype.toHtml = function(){
   var $newProject = $('#projectTemplate').clone();
-  $newProject.attr('id', '').show();
+  $newProject.attr('id', '')
+                .show()
+                .addClass('project');
   $newProject.find('h2')
                 .text(this.name);
   $newProject.find('#dates')

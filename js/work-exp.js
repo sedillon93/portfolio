@@ -16,7 +16,9 @@ var residentTeacher = new Job('Resident Teacher', 'University Child Development 
 
 Job.prototype.toHtml = function(){
   var $newJob = $('#jobTemplate').clone();
-  $newJob.attr('id', '').show();
+  $newJob.attr('id', '')
+              .show()
+              .addClass('job');
   $newJob.find('#jobTitle')
               .text(this.name);
   $newJob.find('#employer')

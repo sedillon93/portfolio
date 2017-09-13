@@ -3,8 +3,16 @@
   text-align: center;
 }
 
+#projectDisplay {
+  margin: auto;
+  width: 90vw;
+}
+
 .project {
-  margin: 2vh;
+  padding: 2vw;
+  margin: 5vh 0 0 5vw;
+  font-size: 4vh;
+  background-color: rgba(255,255,255,.5);
 }
 
 #projectTemplate {

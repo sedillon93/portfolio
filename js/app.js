@@ -5,7 +5,10 @@ $('#hamburgerMenu').on('click', function(){
 });
 
 $('.navItem').on('click', function(event){
+  $('li *').css('display', 'none');
   var identifier = event.target.id;
-  console.log(identifier);
-  $('.' + identifier).toggle();
+  $('.' + identifier).toggle()
+                      .css({position: 'absolute',
+                        top: '40vh',
+                      })
 })

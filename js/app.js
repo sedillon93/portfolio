@@ -5,10 +5,15 @@ $('#hamburgerMenu').on('click', function(){
 });
 
 $('.navItem').on('click', function(event){
-  $('li').children().css('display', 'none');
+  $('li.navItem').children().hide();
   var identifier = event.target.id;
-  $('.' + identifier).toggle()
+  console.log(identifier);
+  $('.' + identifier).show()
                       .css({position: 'absolute',
                         top: '40vh',
                       })
+})
+
+$(document).ready(function(){
+  $('li.navItem').children().hide();
 })

@@ -5,7 +5,7 @@ $('#hamburgerMenu').on('click', function(){
 });
 
 $('.navItem').on('click', function(event){
-  $('li *').css('display', 'none');
+  $('li').children().css('display', 'none');
   var identifier = event.target.id;
   $('.' + identifier).toggle()
                       .css({position: 'absolute',

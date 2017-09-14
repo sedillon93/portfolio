@@ -20,9 +20,42 @@
           About
           <p class="about">There's something thrilling about encountering a problem and tackling it from every angle until you find a solution. It's that kind of mental invigoration that drew me first to chemistry, then geology, and finally to computer science. I'm a problem solver and tinkerer by nature, and that's what got me hooked on coding. Take a look around, and be sure to <a href="contact.html">get in touch</a> if you'd like to learn more about my coding journey or talk about something you are working on!</p>
         </li>
-        <li class="navItem" id="projects">My Project</li>
-        <li class="navItem" id="work">Work Experience</li>
-        <li class="navItem" id="contact">Contact</li>
+        <li class="navItem" id="projects">
+          My Project
+          <div class="projects">
+            <p id="projectHeading">My Projects</p>
+            <ul id="projectDisplay">
+              <li id="projectTemplate">
+                <h2>Project Title</h2>
+                <p id="dates">Dates</p>
+                <p id="description">Description</p>
+                <p>Check it out <a id="link" href="">here</a></p>
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li class="navItem" id="work">
+          Work Experience
+          <div class="work">
+            <ul class="jobDisplay">
+              <li id="jobTemplate">
+                <p id="jobTitle">Job Title</p>
+                <p id="employer">Employer Name</p>
+                <div>Work Dates</div>
+                <p id="description">Job description</p>
+              </li>
+            </ul>
+          </div>
+        </li>
+        <li class="navItem" id="contact">
+          Contact
+          <div class="contact">
+            <p>LinkedIn: <a href="https://www.linkedin.com/in/shannon-dillon-14b05464/">Shannon Dillon</a></p>
+            <p>Github: <a href="https://github.com/sedillon93">sedillon93</a></p>
+            <p>Phone: 215-806-8039</p>
+            <p>Email: sedillon93@gmail.com</p>
+          </div>
+        </li>
       </ul>
       <ul class="connect">
         <li class="icon"><a href="https://www.linkedin.com/in/shannon-dillon-14b05464/"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a></li>
@@ -34,4 +67,6 @@
   <script src="https://use.fontawesome.com/db2379db22.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="js/app.js"></script>
+  <script src="js/projects.js"></script>
+  <script src="js/work-exp.js"></script>
 </html>

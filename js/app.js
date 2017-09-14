@@ -5,15 +5,25 @@ $('#hamburgerMenu').on('click', function(){
 });
 
 $('.navItem').on('click', function(event){
-  $('li.navItem').children().hide();
   var identifier = event.target.id;
-  console.log(identifier);
-  $('.' + identifier).show()
-                      .css({position: 'absolute',
-                        top: '40vh',
-                      })
+  $('html, body').animate({
+    scrollTop: $('.' + identifier).position().top
+  })
 })
 
-$(document).ready(function(){
-  $('li.navItem').children().hide();
+$('#scroll-down').on('click', function(){
+  $('html, body').animate({
+    scrollTop: $('#here').position().top
+  })
 })
+// $(document).ready(function(){
+//   $('li.navItem').children().hide();
+// })
+
+// $('.navItem').on('click', function(event){
+//   $('li.navItem').children().hide();
+//   var identifier = event.target.id;
+//   $('.' + identifier).show()
+//                       .css({position: 'absolute',
+//                         top: '40vh',
+//                       })

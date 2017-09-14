@@ -25,6 +25,10 @@
   font-size: 3vh;
 }
 
+.about {
+  display: none;
+}
+
 .connect {
   float: right;
   width: 80vw;
@@ -59,7 +63,7 @@
   .navItem{
     display: inline;
     padding: 2vh 4vw 0 0;
-    color: white;
+    color: black;
   }
   .connect {
     width: 20vw;

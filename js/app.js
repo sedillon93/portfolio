@@ -4,6 +4,7 @@ $('#hamburgerMenu').on('click', function(){
   $('.navbar').toggle();
 });
 
+//saving this feature for later
 // $('.navItem').on('click', function(event){
 //   var identifier = event.target.id;
 //   $('html, body').animate({
@@ -17,6 +18,7 @@ $(document).ready(function(){
 
 $('.navItem').on('click', function(event){
   $('div.fillNavItem').hide();
+  $('.navbar').toggle();
   var identifier = event.target.id;
   $('.' + identifier).show()
 }

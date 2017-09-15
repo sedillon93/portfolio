@@ -21,6 +21,7 @@
 }
 
 .navbar li {
+  display: inline;
   list-style: none;
   font-size: 3vh;
 }
@@ -57,9 +58,9 @@
     width: 80vw;
   }
   .navItem{
-    display: inline;
+    /*display: inline;*/
     padding: 2vh 4vw 0 0;
-    color: white;
+    color: black;
   }
   .connect {
     width: 20vw;

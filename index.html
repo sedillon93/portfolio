@@ -10,11 +10,6 @@
     <link href="css/projects.css" type="text/css" rel="stylesheet">
     <link href="css/home.css" type="text/css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Amatic+SC:700" rel="stylesheet">
-    <!-- <script id="aboutTemplate" type="text/x-handlebars-template">
-      <section class="fillNavItem">
-        <p>{{ contactInfo }}</p>
-      </section>
-    </script> -->
     <!-- changed divs to sections -->
     <script id="projectTemplate" type="text/x-handlebars-template">
       <li>
@@ -25,16 +20,12 @@
       </li>
     </script>
     <script id="jobTemplate" type="text/x-handlebars-template">
-      <section class="fillNavItem">
-        <ul class="jobDisplay">
           <li>
             <p id="jobTitle">{{ jobTitle }}</p>
             <p id="employer">{{ employerName }}</p>
-            <div>{{ workDates }}</div>
+            <div>`{{ startDate }} to {{ endDate }}`</div>
             <p id="description">{{ jobDescription }}</p>
           </li>
-        </ul>
-      </section>
     </script>
     <script id="contactTemplate" type="text/x-handlebars-template">
       <section class="fillNavItem">
@@ -63,6 +54,12 @@
         <p id="projectHeading">My Projects</p>
         <ul id="projectDisplay">
         </ul>
+      </section>
+      <section>
+      <section class="fillNavItem">
+        <ul id="jobDisplay">
+        </ul>
+      </section>
       </section>
     </div>
     <div class="home fillNavItem">

@@ -29,9 +29,7 @@ function Project(rawProjectObj){
 Project.prototype.toHtml = function(){
   var projectHTML = $('#projectTemplate').html();
   var fillProjectTemplate = Handlebars.compile(projectHTML);
-  // this.attr('id', '')
-  //               .show()
-  //               .addClass('project');
+  $('#projectDisplay').addClass('projects');
   return fillProjectTemplate(this);
 }
 
@@ -45,19 +43,10 @@ function Job(rawJobObj){
 }
 
 Job.prototype.toHtml = function(){
-  var $newJob = $('#jobTemplate').clone();
-  $newJob.attr('id', '')
-              .show()
-              .addClass('job');
-  $newJob.find('#jobTitle')
-              .text(this.name);
-  $newJob.find('#employer')
-              .text(this.employer);
-  $newJob.find('div')
-              .text('From: ' + this.startDate + ' to ' + this.endDate);
-  $newJob.find('#description')
-              .text(this.description);
-  $newJob.appendTo('.jobDisplay')
+  var jobHTML = $('#jobTemplate').html();
+  var fillJobTemplate = Handlebars.compile(jobHTML);
+  $('#jobDisplay').addClass('work');
+  return fillJobTemplate(this);
 }
 
 rawProjectData.forEach(function(project){
@@ -65,11 +54,7 @@ rawProjectData.forEach(function(project){
 });
 
 projects.forEach(function(project){
-  project.toHtml();
-});
-
-projects.forEach(function(project){
-  $('#projectDisplay').append(project);
+  $('#projectDisplay').append(project.toHtml());
 });
 
 rawJobData.forEach(function(job){
@@ -77,5 +62,5 @@ rawJobData.forEach(function(job){
 })
 
 jobs.forEach(function(job){
-  job.toHtml();
+  $('#jobDisplay').append(job.toHtml());
 })

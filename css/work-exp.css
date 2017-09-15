@@ -9,7 +9,7 @@
   display: none;
 }
 
-.jobDisplay {
+#jobDisplay {
   margin: auto;
   width: 90vw;
 }

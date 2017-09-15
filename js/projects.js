@@ -1,5 +1,5 @@
 'use strict';
-var projects = [
+var rawProjectData = [
   {
     projectTitle: 'Salmon Cookies',
     startDate: 'August 2017',

@@ -1,5 +1,8 @@
 'use strict';
 
+var projects = [];
+var jobs = [];
+
 $('#hamburgerMenu').on('click', function(){
   $('.navbar').toggle();
 });
@@ -15,41 +18,30 @@ $('.navItem').on('click', function(event){
 }
 )
 
-var projects = [];
-var jobs = [];
-
-function Project(projectTitle, startDate, endDate, description, projectUrl){
-  this.projectTitle = projectTitle,
-  this.startDate = startDate,
-  this.endDate = endDate,
-  this.description = description,
-  this.projectUrl = projectUrl
+function Project(rawProjectObj){
+  this.projectTitle = rawProjectObj.projectTitle,
+  this.startDate = rawProjectObj.startDate,
+  this.endDate = rawProjectObj.endDate,
+  this.description = rawProjectObj.description,
+  this.projectUrl = rawProjectObj.projectUrl
 }
 
 Project.prototype.toHtml = function(){
-  console.log('working?');
   var projectHTML = $('#projectTemplate').html();
   var fillProjectTemplate = Handlebars.compile(projectHTML);
-  this.attr('id', '')
-                .show()
-                .addClass('project');
+  // this.attr('id', '')
+  //               .show()
+  //               .addClass('project');
   return fillProjectTemplate(this);
 }
 
-projects.forEach(function(project){
-  project.appendTo('#projectDisplay');
-});
 
-function Job(name, employer, startDate, endDate, description){
-  this.name = name,
-  this.employer = employer,
-  this.startDate = startDate,
-  this.endDate = endDate,
-  this.description = description
-}
-
-Job.prototype.render = function(){
-  jobs.push(this);
+function Job(rawJobObj){
+  this.name = rawJobObj.name,
+  this.employer = rawJobObj.employer,
+  this.startDate = rawJobObj.startDate,
+  this.endDate = rawJobObj.endDate,
+  this.description = rawJobObj.description
 }
 
 Job.prototype.toHtml = function(){
@@ -68,11 +60,22 @@ Job.prototype.toHtml = function(){
   $newJob.appendTo('.jobDisplay')
 }
 
-projects.forEach(function(project){
-  project.populateProjectArray();
+rawProjectData.forEach(function(project){
+  projects.push(new Project(project));
 });
 
 projects.forEach(function(project){
   project.toHtml();
-}
-);
+});
+
+projects.forEach(function(project){
+  $('#projectDisplay').append(project);
+});
+
+rawJobData.forEach(function(job){
+  jobs.push(new Job(job));
+})
+
+jobs.forEach(function(job){
+  job.toHtml();
+})

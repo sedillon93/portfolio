@@ -1,5 +1,25 @@
 'use strict';
 
-var developer = new Job('Web Developer-in-training', 'Code Fellows', 'August 2017', 'present', 'Learning CSS, HTML, and Javascript to create interactive websites');
-var elementaryIA = new Job('Elementary Center Instructional Assistant', 'St. Thomas School', 'August 2016', 'June 2017', 'Work with students grades 1-4');
-var residentTeacher = new Job('Resident Teacher', 'University Child Development School', 'August 2015', 'June 2016', 'Work with students in grades 4-5')
+var rawJobData = [
+  {
+    name: 'Web Developer-in-training',
+    employer: 'Code Fellows',
+    startDate: 'August 2017',
+    endDate: 'present',
+    description: 'Learning CSS, HTML, and Javascript to create interactive websites'
+  },
+  {
+    name: 'Elementary Center Instructional Assistant',
+    employer: 'St. Thomas School',
+    startDate: 'August 2016',
+    endDate: 'June 2017',
+    description: 'Work with students grades 1-4'
+  },
+  {
+    name: 'Resident Teacher',
+    employer: 'University Child Development School',
+    startDate: 'August 2015',
+    endDate: 'June 2016',
+    description: 'Work with students in grades 4-5'
+  }
+]

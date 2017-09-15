@@ -18,7 +18,6 @@ $(document).ready(function(){
 
 $('.navItem').on('click', function(event){
   $('div.fillNavItem').hide();
-  $('.navbar').toggle();
   var identifier = event.target.id;
   $('.' + identifier).show()
 }

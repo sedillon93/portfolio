@@ -8,11 +8,11 @@ $('#hamburgerMenu').on('click', function(){
 });
 
 $(document).ready(function(){
-  $('div.fillNavItem').hide();
+  $('section.fillNavItem').hide();
 })
 
 $('.navItem').on('click', function(event){
-  $('div.fillNavItem').hide();
+  $('section.fillNavItem').hide();
   var identifier = event.target.id;
   $('.' + identifier).show()
 }
@@ -29,23 +29,23 @@ function Project(rawProjectObj){
 Project.prototype.toHtml = function(){
   var projectHTML = $('#projectTemplate').html();
   var fillProjectTemplate = Handlebars.compile(projectHTML);
-  $('#projectDisplay').addClass('projects');
+  $('#projectInfo').addClass('projects');
   return fillProjectTemplate(this);
 }
 
 
 function Job(rawJobObj){
-  this.name = rawJobObj.name,
+  this.jobTitle = rawJobObj.jobTitle,
   this.employer = rawJobObj.employer,
   this.startDate = rawJobObj.startDate,
   this.endDate = rawJobObj.endDate,
-  this.description = rawJobObj.description
+  this.jobDescription = rawJobObj.jobDescription
 }
 
 Job.prototype.toHtml = function(){
   var jobHTML = $('#jobTemplate').html();
   var fillJobTemplate = Handlebars.compile(jobHTML);
-  $('#jobDisplay').addClass('work');
+  $('#jobInfo').addClass('work');
   return fillJobTemplate(this);
 }
 

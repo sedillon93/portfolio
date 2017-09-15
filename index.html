@@ -14,7 +14,7 @@
     <script id="projectTemplate" type="text/x-handlebars-template">
       <li>
         <h2>{{ projectTitle }}</h2>
-        <p id="dates">`{{ startDate }} to {{ endDate }}`</p>
+        <p id="dates">{{ startDate }} to {{ endDate }}</p>
         <p id="description">{{ description }}</p>
         <p>Check it out <a id="link" href="{{ projectUrl }}">here</a></p>
       </li>
@@ -22,8 +22,8 @@
     <script id="jobTemplate" type="text/x-handlebars-template">
           <li>
             <p id="jobTitle">{{ jobTitle }}</p>
-            <p id="employer">{{ employerName }}</p>
-            <div>`{{ startDate }} to {{ endDate }}`</div>
+            <p id="employer">{{ employer }}</p>
+            <div>{{ startDate }} to {{ endDate }}</div>
             <p id="description">{{ jobDescription }}</p>
           </li>
     </script>
@@ -50,13 +50,13 @@
         <li class="icon"><a href="https://www.linkedin.com/in/shannon-dillon-14b05464/"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a></li>
         <li class="icon"><a href="https://github.com/sedillon93"><i class="fa fa-github" aria-hidden="true"></a></i></li>
       </ul>
-      <section class="fillNavItem">
+      <section class="fillNavItem" id="projectInfo">
         <p id="projectHeading">My Projects</p>
         <ul id="projectDisplay">
         </ul>
       </section>
       <section>
-      <section class="fillNavItem">
+      <section class="fillNavItem" id="jobInfo">
         <ul id="jobDisplay">
         </ul>
       </section>

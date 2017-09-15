@@ -35,11 +35,11 @@ Project.prototype.toHtml = function(){
 
 
 function Job(rawJobObj){
-  this.jobTitle = rawJobObj.jobTitle,
-  this.employer = rawJobObj.employer,
-  this.startDate = rawJobObj.startDate,
-  this.endDate = rawJobObj.endDate,
-  this.jobDescription = rawJobObj.jobDescription
+  this.jobTitle = rawJobObj.jobTitle;
+  this.employer = rawJobObj.employer;
+  this.startDate = rawJobObj.startDate;
+  this.endDate = rawJobObj.endDate;
+  this.jobDescription = rawJobObj.jobDescription;
 }
 
 Job.prototype.toHtml = function(){

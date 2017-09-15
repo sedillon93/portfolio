@@ -16,7 +16,7 @@
         <p>{{ contactInfo }}</p>
       </section>
       <section class="fillNavItem" id="projectTemplate">
-        <p id="projectHeading">{{ projectHeading }}</p>
+        <p id="projectHeading">My Projects</p>
         <ul id="projectDisplay">
           <li>
             <h2>{{ projectTitle }}</h2>
@@ -36,10 +36,10 @@
           </li>
         </ul>
       </section>
-      <section class="contact fillNavItem">
+      <section class="fillNavItem" id="contactTemplate">
         <p>LinkedIn: <a href="https://www.linkedin.com/in/shannon-dillon-14b05464/">Shannon Dillon</a></p>
         <p>Github: <a href="https://github.com/sedillon93">sedillon93</a></p>
-        <p>Phone: 215-806-8039</p>
+        <p>Phone: {{ phone }}</p>
         <p>Email: sedillon93@gmail.com</p>
       </section>
     </script>
@@ -65,6 +65,7 @@
   </body>
   <script src="https://use.fontawesome.com/db2379db22.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script>https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.min.js</script>
   <script src="js/app.js"></script>
   <script src="js/constructors.js"></script>
   <script src="js/projects.js"></script>

@@ -1,32 +1,32 @@
 'use strict';
 
-function Project(name, startDate, endDate, description, link){
-  this.name = name,
+var projects = [];
+var jobs = [];
+
+function Project(projectTitle, startDate, endDate, description, projectUrl){
+  this.projectTitle = name,
   this.startDate = startDate,
   this.endDate = endDate,
   this.description = description,
-  this.link = link
+  this.projectUrl = projectUrl
 }
 
-Project.prototype.render = function(){
+Project.prototype.populateProjectArray = function(){
   projects.push(this);
 }
 
 Project.prototype.toHtml = function(){
-  var $newProject = $('#projectTemplate').clone();
-  $newProject.attr('id', '')
+  var projectHTML = $('#projectTemplate').html();
+  var fillProjectTemplate = Handlebars.compile(projectHTML);
+  this.attr('id', '')
                 .show()
                 .addClass('project');
-  $newProject.find('h2')
-                .text(this.name);
-  $newProject.find('#dates')
-                .text(this.startDate + ' to ' + this.endDate);
-  $newProject.find('#description')
-                .text(this.description);
-  $newProject.find('#link')
-                .attr('href', this.link);
-  $newProject.appendTo('#projectDisplay');
+  return fillProjectTemplate(this);
 }
+
+projects.forEach(function(project){
+  project.appendTo('#projectDisplay');
+})
 
 function Job(name, employer, startDate, endDate, description){
   this.name = name,

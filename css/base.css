@@ -17,7 +17,7 @@ a {
 }
 
 .fa {
-  color: white;
+  color: green;
 }
 
 .topBar {
@@ -33,6 +33,12 @@ a {
   list-style: none;
   font-size: 3vh;
   cursor: pointer;
+}
+
+.navbar{
+  text-align: center;
+  display: inline;
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
 .navItem a:visited{
@@ -53,5 +59,8 @@ a {
 
   .navItem{
     color: white;
+  }
+
+  .navbar {
   }
 }

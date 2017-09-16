@@ -11,6 +11,7 @@
   position: absolute;
   top: 4vh;
   left: 12vw;
+  display: inline;
 }
 
 @media all and (min-width: 800px){

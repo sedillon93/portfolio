@@ -17,7 +17,7 @@ a {
 }
 
 .fa {
-  color: green;
+  color: white;
 }
 
 .topBar {
@@ -31,7 +31,7 @@ a {
 
 .navbar li {
   list-style: none;
-  font-size: 3vh;
+  font-size: 2vw;
   cursor: pointer;
 }
 

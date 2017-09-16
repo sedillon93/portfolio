@@ -10,7 +10,10 @@
     <link href="css/projects.css" type="text/css" rel="stylesheet">
     <link href="css/home.css" type="text/css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Amatic+SC:700" rel="stylesheet">
-    <!-- changed divs to sections -->
+    <script id="aboutTemplate" type="text/x-handlebars-template">
+      <h2>{{ greeting }}</h2>
+      <p>{{ blurb }}</p>
+    </script>
     <script id="projectTemplate" type="text/x-handlebars-template">
       <li>
         <h2>{{ projectTitle }}</h2>
@@ -50,21 +53,24 @@
         <li class="icon"><a href="https://www.linkedin.com/in/shannon-dillon-14b05464/"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a></li>
         <li class="icon"><a href="https://github.com/sedillon93"><i class="fa fa-github" aria-hidden="true"></a></i></li>
       </ul>
-      <section class="fillNavItem" id="projectInfo">
-        <p id="projectHeading">My Projects</p>
-        <ul id="projectDisplay">
-        </ul>
-      </section>
-      <section>
-      <section class="fillNavItem" id="jobInfo">
-        <ul id="jobDisplay">
-        </ul>
-      </section>
-      </section>
     </div>
-    <div class="home fillNavItem">
+    <section class="home fillNavItem">
       <p class="hookStatement">Improving the world, one line of code at a time</p>
-    </div>
+    </section>
+    <section class="fillNavItem" id="aboutInfo">
+
+    </section>
+    <section class="fillNavItem" id="projectInfo">
+      <p id="projectHeading">My Projects</p>
+      <ul id="projectDisplay">
+      </ul>
+    </section>
+    <section>
+    <section class="fillNavItem" id="jobInfo">
+      <ul id="jobDisplay">
+      </ul>
+    </section>
+    </section>
   </body>
   <script src="https://use.fontawesome.com/db2379db22.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

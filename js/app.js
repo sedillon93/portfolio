@@ -3,21 +3,6 @@
 var projects = [];
 var jobs = [];
 
-$('#hamburgerMenu').on('click', function(){
-  $('.navbar').toggle();
-});
-
-$(document).ready(function(){
-  $('section.fillNavItem').hide();
-})
-
-$('.navItem').on('click', function(event){
-  $('section.fillNavItem').hide();
-  var identifier = event.target.id;
-  $('.' + identifier).show()
-}
-)
-
 function Project(rawProjectObj){
   this.projectTitle = rawProjectObj.projectTitle,
   this.startDate = rawProjectObj.startDate,
@@ -64,3 +49,31 @@ rawJobData.forEach(function(job){
 jobs.forEach(function(job){
   $('#jobDisplay').append(job.toHtml());
 })
+
+$('#hamburgerMenu').on('click', function(){
+  $('.navbar').toggle();
+});
+
+$(document).ready(function(){
+  $('section.fillNavItem').hide();
+})
+
+$('.navItem').on('click', function(event){
+  $('section.fillNavItem').hide();
+  var identifier = event.target.id;
+  $('.' + identifier).show()
+})
+
+var renderAboutHTML = function(){
+  var aboutHTML = $('#aboutTemplate').html();
+  var fillAboutTemplate = Handlebars.compile(aboutHTML);
+  fillAboutTemplate({
+    greeting: 'Welcome to my portfolio. Take a look around and be sure to get in touch.',
+    blurb: 'This is a test blurb about myself to see how it renders to the page.'
+  })
+  $('#aboutInfo').addClass('about').append(fillAboutTemplate());
+  console.log(fillAboutTemplate());
+  return fillAboutTemplate;
+}
+
+renderAboutHTML();

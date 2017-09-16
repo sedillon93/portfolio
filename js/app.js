@@ -34,21 +34,45 @@ Job.prototype.toHtml = function(){
   return fillJobTemplate(this);
 }
 
-rawProjectData.forEach(function(project){
-  projects.push(new Project(project));
-});
+var renderProjectHTML = function(){
+  rawProjectData.forEach(function(project){
+    projects.push(new Project(project));
+  });
 
-projects.forEach(function(project){
-  $('#projectDisplay').append(project.toHtml());
-});
+  projects.forEach(function(project){
+    $('#projectDisplay').append(project.toHtml());
+  });
+}
 
-rawJobData.forEach(function(job){
-  jobs.push(new Job(job));
-})
+var renderJobHTML = function(){
+  rawJobData.forEach(function(job){
+    jobs.push(new Job(job));
+  })
 
-jobs.forEach(function(job){
-  $('#jobDisplay').append(job.toHtml());
-})
+  jobs.forEach(function(job){
+    $('#jobDisplay').append(job.toHtml());
+  })
+}
+
+var renderAboutHTML = function(){
+  var $aboutHTML = $('#aboutTemplate').html();
+  var $fillAboutTemplate = Handlebars.compile($aboutHTML);
+  var $filledTemplate = $fillAboutTemplate({
+    greeting: `Welcome to my portfolio. Take a look around and be sure to get in touch.`,
+    blurb: `This is a test blurb about myself to see how it renders to the page.`
+  });
+  $('#aboutInfo').addClass('about').append($filledTemplate);
+}
+
+var renderContactHTML = function(){
+  var contactHTML = $('#contactTemplate').html();
+  var $fillContactTemplate = Handlebars.compile(contactHTML);
+  var filledTemplate = $fillContactTemplate({
+    phone: `(215)-806-8039`,
+    email: `sedillon93@gmail.com`
+  });
+  $('#contactInfo').addClass('contact').append(filledTemplate);
+}
 
 $('#hamburgerMenu').on('click', function(){
   $('.navbar').toggle();
@@ -64,14 +88,9 @@ $('.navItem').on('click', function(event){
   $('.' + identifier).show()
 })
 
-var renderAboutHTML = function(){
-  var $aboutHTML = $('#aboutTemplate').html();
-  var $fillAboutTemplate = Handlebars.compile($aboutHTML);
-  var filledTemplate = $fillAboutTemplate({
-    greeting: `Welcome to my portfolio. Take a look around and be sure to get in touch.`,
-    blurb: `This is a test blurb about myself to see how it renders to the page.`
-  });
-  $('#aboutInfo').addClass('about').append(filledTemplate);
+var initPageView = function(){
+  renderAboutHTML();
+  renderProjectHTML();
+  renderJobHTML();
+  renderContactHTML();
 }
-
-renderAboutHTML();

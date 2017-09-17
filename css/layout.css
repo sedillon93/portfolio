@@ -43,6 +43,10 @@
   font-size: 5vh;
 }
 
+#jobDisplay li, #projectDisplay li {
+  padding-bottom: 2em;
+}
+
 @media all and (min-width: 800px){
   .topBar {
     background-color: rgba(13, 71, 161, .6);
@@ -55,7 +59,7 @@
     display: block;
     padding: 3vh 0 0 0;
     width: 80vw;
-    height: auto;
+    height: 7vh;
   }
   .navItem{
     padding: 2vh 4vw 0 0;

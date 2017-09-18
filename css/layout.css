@@ -57,15 +57,15 @@
   }
   .navbar {
     display: block;
-    padding: 3vh 0 0 0;
-    width: 80vw;
+    padding: 2vh 0 0 0;
+    width: 85vw;
     height: 7vh;
   }
   .navItem{
     padding: 2vh 4vw 0 0;
   }
   .connect {
-    width: 20vw;
+    width: 15vw;
     padding-right: 2vw;
   }
   .icon {

@@ -3,9 +3,14 @@
 }
 
 body {
-  background-size: cover;
+  background-size: contain;
   background-repeat: no-repeat;
   background-image: url(http://seattlehappytails.com/wp-content/uploads/2016/05/seattle_skyline_trans.png);
+  background-attachment: fixed;
+}
+
+h1 {
+  font-size: 5vh;
 }
 
 ul {
@@ -31,8 +36,14 @@ a {
 
 .navbar li {
   list-style: none;
-  font-size: 3vh;
+  font-size: 6vw;
   cursor: pointer;
+}
+
+.navbar{
+  text-align: center;
+  display: inline;
+  background-color: rgb(110, 145, 199);
 }
 
 .navItem a:visited{
@@ -51,7 +62,12 @@ a {
     background-color: rgba(13, 71, 161, .6);
   }
 
-  .navItem{
+  .navbar li{
     color: white;
+    font-size: 2.5vw;
+  }
+
+  .navbar {
+    background-color: rgba(255,255,255,0);
   }
 }

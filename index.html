@@ -10,7 +10,10 @@
     <link href="css/projects.css" type="text/css" rel="stylesheet">
     <link href="css/home.css" type="text/css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Amatic+SC:700" rel="stylesheet">
-    <!-- changed divs to sections -->
+    <script id="aboutTemplate" type="text/x-handlebars-template">
+      <h2>{{ greeting }}</h2>
+      <p>{{ blurb }}</p>
+    </script>
     <script id="projectTemplate" type="text/x-handlebars-template">
       <li>
         <h2>{{ projectTitle }}</h2>
@@ -28,12 +31,10 @@
           </li>
     </script>
     <script id="contactTemplate" type="text/x-handlebars-template">
-      <section class="fillNavItem">
-        <p>LinkedIn: <a href="https://www.linkedin.com/in/shannon-dillon-14b05464/">Shannon Dillon</a></p>
-        <p>Github: <a href="https://github.com/sedillon93">sedillon93</a></p>
-        <p>Phone: {{ phone }}</p>
-        <p>Email: sedillon93@gmail.com</p>
-      </section>
+      <p>LinkedIn: <a href="https://www.linkedin.com/in/shannon-dillon-14b05464/">Shannon Dillon</a></p>
+      <p>Github: <a href="https://github.com/sedillon93">sedillon93</a></p>
+      <p>Phone: {{ phone }}</p>
+      <p>Email: {{ email }}</p>
     </script>
   </head>
   <body>
@@ -42,7 +43,7 @@
       <ul class="navbar">
         <li class="navItem" id="home">Home</li>
         <li class="navItem" id="about">About</li>
-        <li class="navItem" id="projects">My Project</li>
+        <li class="navItem" id="projects">My Projects</li>
         <li class="navItem" id="work">Work Experience</li>
         <li class="navItem" id="contact">Contact</li>
       </ul>
@@ -50,21 +51,22 @@
         <li class="icon"><a href="https://www.linkedin.com/in/shannon-dillon-14b05464/"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a></li>
         <li class="icon"><a href="https://github.com/sedillon93"><i class="fa fa-github" aria-hidden="true"></a></i></li>
       </ul>
-      <section class="fillNavItem" id="projectInfo">
-        <p id="projectHeading">My Projects</p>
-        <ul id="projectDisplay">
-        </ul>
-      </section>
-      <section>
-      <section class="fillNavItem" id="jobInfo">
-        <ul id="jobDisplay">
-        </ul>
-      </section>
-      </section>
     </div>
-    <div class="home fillNavItem">
+    <section class="home fillNavItem">
       <p class="hookStatement">Improving the world, one line of code at a time</p>
-    </div>
+    </section>
+    <section class="fillNavItem" id="aboutInfo"></section>
+    <section class="fillNavItem" id="projectInfo">
+      <h1 id="projectHeading">My Projects</h1>
+      <ul id="projectDisplay">
+      </ul>
+    </section>
+    <section class="fillNavItem" id="jobInfo">
+      <h1 id="jobHeading">Work Experience</h1>
+      <ul id="jobDisplay">
+      </ul>
+    </section>
+    <section class="fillNavItem" id="contactInfo"></section>
   </body>
   <script src="https://use.fontawesome.com/db2379db22.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -72,4 +74,7 @@
   <script src="js/projects.js"></script>
   <script src="js/work-exp.js"></script>
   <script src="js/app.js"></script>
+  <script>
+    initPageView();
+  </script>
 </html>

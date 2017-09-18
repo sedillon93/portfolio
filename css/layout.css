@@ -10,7 +10,7 @@
 .navbar {
   float: left;
   display: none;
-  width: 20vw;
+  width: 30vw;
 }
 
 #hamburgerMenu {
@@ -23,12 +23,11 @@
 .navbar li {
   display: inline;
   list-style: none;
-  font-size: 3vh;
 }
 
 .connect {
   float: right;
-  width: 80vw;
+  width: 30vw;
 }
 
 .icon a {
@@ -44,26 +43,29 @@
   font-size: 5vh;
 }
 
+#jobDisplay li, #projectDisplay li {
+  padding-bottom: 2em;
+}
+
 @media all and (min-width: 800px){
   .topBar {
     background-color: rgba(13, 71, 161, .6);
-    height: 7vh;
+    height: 8vh;
   }
   #hamburgerMenu {
     display: none;
   }
   .navbar {
     display: block;
-    padding: 2% 0 0 2%;
-    width: 80vw;
+    padding: 2vh 0 0 0;
+    width: 85vw;
+    height: 7vh;
   }
   .navItem{
-    /*display: inline;*/
     padding: 2vh 4vw 0 0;
-    color: black;
   }
   .connect {
-    width: 20vw;
+    width: 15vw;
     padding-right: 2vw;
   }
   .icon {

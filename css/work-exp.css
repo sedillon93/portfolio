@@ -9,6 +9,10 @@
   display: none;
 }
 
+#jobHeading {
+  text-align: center;
+}
+
 #jobDisplay {
   margin: auto;
   width: 90vw;

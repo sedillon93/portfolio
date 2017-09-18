@@ -43,7 +43,7 @@ a {
 .navbar{
   text-align: center;
   display: inline;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgb(110, 145, 199);
 }
 
 .navItem a:visited{

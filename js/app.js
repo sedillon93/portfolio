@@ -5,9 +5,13 @@ var jobs = [];
 
 var appendProjects = function (projectData){
   projectData.forEach(function(project){
-    console.log(project);
-    // $('#projectDisplay').append(project).toHtml();
-  });
+    projects.push(new Project(project));
+    // $('#projectDisplay').append(project.toHtml());
+  })
+
+  // projectData.forEach(function(project){
+  //   $('#projectDisplay').append(project.toHtml());
+  // });
 }
 
 var fetchProjects = function(){
@@ -18,12 +22,8 @@ var fetchProjects = function(){
   else {
     //otherwise, get the data from the JSON file, store it locally, and add it to the page
     $.get(`js/projects.json`, function(response){
-      response.forEach(function(project){
-        projects.push(new Project(project));
-      })
 
       localStorage.setItem('rawProject', JSON.stringify(response));
-
       appendProjects(JSON.parse(localStorage.rawProject));
     });
   }

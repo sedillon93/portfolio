@@ -3,8 +3,6 @@
 var projects = [];
 var jobs = [];
 
-//get the data from the JSON file
-//use that data to fill in the template
 $.get('js/projects.json', function(response){
   response.forEach(function(project){
     projects.push(new Project(project));
@@ -15,7 +13,15 @@ $.get('js/projects.json', function(response){
   });
 });
 
-$.get('js/work-exp.json', renderJobHTML);
+$.get('js/work-exp.json', function(response){
+  response.forEach(function(job){
+    jobs.push(new Job(job));
+  })
+
+  jobs.forEach(function(job){
+    $('#jobDisplay').append(job.toHtml());
+  })
+});
 
 function Project(jsonProjData){
   this.projectTitle = jsonProjData.projectTitle,
@@ -48,26 +54,6 @@ Job.prototype.toHtml = function(){
   return fillJobTemplate(this);
 }
 
-// var renderProjectHTML = function(response){
-//   response.forEach(function(project){
-//     projects.push(new Project(project));
-//   });
-//
-//   projects.forEach(function(project){
-//     $('#projectDisplay').append(project.toHtml());
-//   });
-// }
-
-var renderJobHTML = function(response){
-  response.forEach(function(job){
-    jobs.push(new Job(job));
-  })
-
-  jobs.forEach(function(job){
-    $('#jobDisplay').append(job.toHtml());
-  })
-}
-
 var renderAboutHTML = function(){
   var $aboutHTML = $('#aboutTemplate').html();
   var $fillAboutTemplate = Handlebars.compile($aboutHTML);
@@ -97,6 +83,7 @@ $(document).ready(function(){
 })
 
 $('.navItem').on('click', function(event){
+  console.log(event.target.id);
   $('section.fillNavItem').hide();
   var identifier = event.target.id;
   $('.' + identifier).show()

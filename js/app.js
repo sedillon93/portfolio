@@ -5,13 +5,13 @@ var jobs = [];
 
 var appendProjects = function (projectData){
   projectData.forEach(function(project){
+    //seems like the project is not recognized as a Project instance, so it doesn't have the .toHtml method...
     projects.push(new Project(project));
-    // $('#projectDisplay').append(project.toHtml());
   })
 
-  // projectData.forEach(function(project){
-  //   $('#projectDisplay').append(project.toHtml());
-  // });
+  projects.forEach(function(project){
+    $('#projectDisplay').append(project.toHtml());
+  });
 }
 
 var fetchProjects = function(){
@@ -22,7 +22,6 @@ var fetchProjects = function(){
   else {
     //otherwise, get the data from the JSON file, store it locally, and add it to the page
     $.get(`js/projects.json`, function(response){
-
       localStorage.setItem('rawProject', JSON.stringify(response));
       appendProjects(JSON.parse(localStorage.rawProject));
     });

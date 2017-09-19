@@ -3,15 +3,43 @@
 var projects = [];
 var jobs = [];
 
-$.get('js/work-exp.json', function(response){
-  response.forEach(function(job){
-    jobs.push(new Job(job));
-  })
+var appendProjects = function (){
+  projects.forEach(function(project){
+    $('#projectDisplay').append(project).toHtml();
+  });
+}
 
-  jobs.forEach(function(job){
-    $('#jobDisplay').append(job.toHtml());
-  })
-});
+var fetchProjects = function(){
+  if (localStorage.rawProject){
+    //if there's something in local storage, get that and append it
+    JSON.parse(localStorage.rawProject);
+    appendProjects();
+  }
+  else {
+    //otherwise, get the data from the JSON file, store it locally, and add it to the page
+    $.get(`js/projects.json`, function(response){
+      response.forEach(function(project){
+        projects.push(new Project(project));
+      })
+
+      localStorage.setItem('rawProject', JSON.stringify(response));
+
+      appendProjects();
+    });
+  }
+}
+
+var fetchJobs = function(){
+  $.get('js/work-exp.json', function(response){
+    response.forEach(function(job){
+      jobs.push(new Job(job));
+    })
+
+    jobs.forEach(function(job){
+      $('#jobDisplay').append(job.toHtml());
+    })
+  });
+}
 
 function Project(jsonProjData){
   this.projectTitle = jsonProjData.projectTitle,
@@ -76,19 +104,11 @@ $('.navItem').on('click', function(event){
   $('section.fillNavItem').hide();
   var identifier = event.target.id;
   $('.' + identifier).show()
-
-  $.get(`js/{event.target.id}.json`, function(response){
-    response.forEach(function(obj){
-      `{event.target.id}`.push(new Project(obj));
-    });
-
-    projects.forEach(function(project){
-      $('#projectDisplay').append(project.toHtml());
-    });
-  });
 })
 
 var initPageView = function(){
   renderAboutHTML();
   renderContactHTML();
+  fetchProjects();
+  fetchJobs();
 }

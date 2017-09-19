@@ -3,16 +3,6 @@
 var projects = [];
 var jobs = [];
 
-$.get('js/projects.json', function(response){
-  response.forEach(function(project){
-    projects.push(new Project(project));
-  });
-
-  projects.forEach(function(project){
-    $('#projectDisplay').append(project.toHtml());
-  });
-});
-
 $.get('js/work-exp.json', function(response){
   response.forEach(function(job){
     jobs.push(new Job(job));
@@ -83,10 +73,19 @@ $(document).ready(function(){
 })
 
 $('.navItem').on('click', function(event){
-  console.log(event.target.id);
   $('section.fillNavItem').hide();
   var identifier = event.target.id;
   $('.' + identifier).show()
+
+  $.get(`js/{event.target.id}.json`, function(response){
+    response.forEach(function(obj){
+      `{event.target.id}`.push(new Project(obj));
+    });
+
+    projects.forEach(function(project){
+      $('#projectDisplay').append(project.toHtml());
+    });
+  });
 })
 
 var initPageView = function(){

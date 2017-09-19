@@ -3,17 +3,17 @@
 var projects = [];
 var jobs = [];
 
-var appendProjects = function (){
-  projects.forEach(function(project){
-    $('#projectDisplay').append(project).toHtml();
+var appendProjects = function (projectData){
+  projectData.forEach(function(project){
+    console.log(project);
+    // $('#projectDisplay').append(project).toHtml();
   });
 }
 
 var fetchProjects = function(){
   if (localStorage.rawProject){
     //if there's something in local storage, get that and append it
-    JSON.parse(localStorage.rawProject);
-    appendProjects();
+    appendProjects(JSON.parse(localStorage.rawProject));
   }
   else {
     //otherwise, get the data from the JSON file, store it locally, and add it to the page
@@ -24,7 +24,7 @@ var fetchProjects = function(){
 
       localStorage.setItem('rawProject', JSON.stringify(response));
 
-      appendProjects();
+      appendProjects(JSON.parse(localStorage.rawProject));
     });
   }
 }

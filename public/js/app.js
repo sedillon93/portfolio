@@ -3,49 +3,12 @@
 var projects = [];
 var jobs = [];
 
-var appendProjects = function (projectData){
-  projectData.forEach(function(project){
-    //seems like the project is not recognized as a Project instance, so it doesn't have the .toHtml method...
-    projects.push(new Project(project));
-  })
-
-  projects.forEach(function(project){
-    $('#projectDisplay').append(project.toHtml());
-  });
-}
-
-var fetchProjects = function(){
-  if (localStorage.rawProject){
-    //if there's something in local storage, get that and append it
-    appendProjects(JSON.parse(localStorage.rawProject));
-  }
-  else {
-    //otherwise, get the data from the JSON file, store it locally, and add it to the page
-    $.get(`js/projects.json`, function(response){
-      localStorage.setItem('rawProject', JSON.stringify(response));
-      appendProjects(JSON.parse(localStorage.rawProject));
-    });
-  }
-}
-
-var fetchJobs = function(){
-  $.get('js/work-exp.json', function(response){
-    response.forEach(function(job){
-      jobs.push(new Job(job));
-    })
-
-    jobs.forEach(function(job){
-      $('#jobDisplay').append(job.toHtml());
-    })
-  });
-}
-
-function Project(jsonProjData){
-  this.projectTitle = jsonProjData.projectTitle,
-  this.startDate = jsonProjData.startDate,
-  this.endDate = jsonProjData.endDate,
-  this.description = jsonProjData.description,
-  this.projectUrl = jsonProjData.projectUrl
+function Project(rawProjectObj){
+  this.projectTitle = rawProjectObj.projectTitle,
+  this.startDate = rawProjectObj.startDate,
+  this.endDate = rawProjectObj.endDate,
+  this.description = rawProjectObj.description,
+  this.projectUrl = rawProjectObj.projectUrl
 }
 
 Project.prototype.toHtml = function(){
@@ -56,12 +19,12 @@ Project.prototype.toHtml = function(){
 }
 
 
-function Job(jsonJobData){
-  this.jobTitle = jsonJobData.jobTitle;
-  this.employer = jsonJobData.employer;
-  this.startDate = jsonJobData.startDate;
-  this.endDate = jsonJobData.endDate;
-  this.jobDescription = jsonJobData.jobDescription;
+function Job(rawJobObj){
+  this.jobTitle = rawJobObj.jobTitle;
+  this.employer = rawJobObj.employer;
+  this.startDate = rawJobObj.startDate;
+  this.endDate = rawJobObj.endDate;
+  this.jobDescription = rawJobObj.jobDescription;
 }
 
 Job.prototype.toHtml = function(){
@@ -69,6 +32,26 @@ Job.prototype.toHtml = function(){
   var fillJobTemplate = Handlebars.compile(jobHTML);
   $('#jobInfo').addClass('work');
   return fillJobTemplate(this);
+}
+
+var renderProjectHTML = function(){
+  rawProjectData.forEach(function(project){
+    projects.push(new Project(project));
+  });
+
+  projects.forEach(function(project){
+    $('#projectDisplay').append(project.toHtml());
+  });
+}
+
+var renderJobHTML = function(){
+  rawJobData.forEach(function(job){
+    jobs.push(new Job(job));
+  })
+
+  jobs.forEach(function(job){
+    $('#jobDisplay').append(job.toHtml());
+  })
 }
 
 var renderAboutHTML = function(){
@@ -107,7 +90,7 @@ $('.navItem').on('click', function(event){
 
 var initPageView = function(){
   renderAboutHTML();
+  renderProjectHTML();
+  renderJobHTML();
   renderContactHTML();
-  fetchProjects();
-  fetchJobs();
 }

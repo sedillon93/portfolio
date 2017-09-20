@@ -32,13 +32,11 @@ Project.fetchProjects = function(){
   //fix this so that if local storage gets cleared, fetchProjects is called again and things get stored locally; right now just keeps bouncing to the else statement if you clear local storage on the desktop
   if (localStorage.rawProject){
     Project.loadProjects(JSON.parse(localStorage.rawProject));
-    initPageView();
   }
   else {
     $.get(`js/projects.json`, function(response){
       localStorage.setItem('rawProject', JSON.stringify(response));
-      Project.loadProjects(JSON.parse(localStorage.rawProject));
-      initPageView();
+      Project.loadProjects(response);
     });
   }
 }

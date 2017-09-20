@@ -2,10 +2,6 @@
 
 var pageView = {};
 
-$('#hamburgerMenu').on('click', function(){
-  $('.navbar').toggle();
-});
-
 $(document).ready(function(){
   $('section.fillNavItem').hide();
 })
@@ -15,3 +11,7 @@ $('.navItem').on('click', function(event){
   var identifier = event.target.id;
   $('.' + identifier).show()
 })
+
+$('#hamburgerMenu').on('click', function(){
+  $('.navbar').toggle();
+});

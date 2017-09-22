@@ -1,0 +1,23 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "301 portfolio project",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sedillon93/portfolio.git"
+  },
+  "author": "Shannon Dillon",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sedillon93/portfolio/issues"
+  },
+  "homepage": "https://github.com/sedillon93/portfolio#readme",
+  "dependencies": {
+    "body-parser": "^1.18.1",
+    "express": "^4.15.4"
+  }
+}

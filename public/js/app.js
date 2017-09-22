@@ -3,43 +3,6 @@
 var projects = [];
 var jobs = [];
 
-var appendProjects = function (projectData){
-  projectData.forEach(function(project){
-    //seems like the project is not recognized as a Project instance, so it doesn't have the .toHtml method...
-    projects.push(new Project(project));
-  })
-
-  projects.forEach(function(project){
-    $('#projectDisplay').append(project.toHtml());
-  });
-}
-
-var fetchProjects = function(){
-  if (localStorage.rawProject){
-    //if there's something in local storage, get that and append it
-    appendProjects(JSON.parse(localStorage.rawProject));
-  }
-  else {
-    //otherwise, get the data from the JSON file, store it locally, and add it to the page
-    $.get(`js/projects.json`, function(response){
-      localStorage.setItem('rawProject', JSON.stringify(response));
-      appendProjects(JSON.parse(localStorage.rawProject));
-    });
-  }
-}
-
-var fetchJobs = function(){
-  $.get('js/work-exp.json', function(response){
-    response.forEach(function(job){
-      jobs.push(new Job(job));
-    })
-
-    jobs.forEach(function(job){
-      $('#jobDisplay').append(job.toHtml());
-    })
-  });
-}
-
 function Project(jsonProjData){
   this.projectTitle = jsonProjData.projectTitle,
   this.startDate = jsonProjData.startDate,
@@ -55,6 +18,28 @@ Project.prototype.toHtml = function(){
   return fillProjectTemplate(this);
 }
 
+Project.loadProjects = function (projectData){
+  projectData.forEach(function(project){
+    projects.push(new Project(project));
+  })
+
+  projects.forEach(function(project){
+    $('#projectDisplay').append(project.toHtml());
+  });
+}
+
+Project.fetchProjects = function(){
+  //fix this so that if local storage gets cleared, fetchProjects is called again and things get stored locally; right now just keeps bouncing to the else statement if you clear local storage on the desktop
+  if (localStorage.rawProject){
+    Project.loadProjects(JSON.parse(localStorage.rawProject));
+  }
+  else {
+    $.get(`js/projects.json`, function(response){
+      localStorage.setItem('rawProject', JSON.stringify(response));
+      Project.loadProjects(response);
+    });
+  }
+}
 
 function Job(jsonJobData){
   this.jobTitle = jsonJobData.jobTitle;
@@ -69,6 +54,18 @@ Job.prototype.toHtml = function(){
   var fillJobTemplate = Handlebars.compile(jobHTML);
   $('#jobInfo').addClass('work');
   return fillJobTemplate(this);
+}
+
+var fetchJobs = function(){
+  $.get('js/work-exp.json', function(response){
+    response.forEach(function(job){
+      jobs.push(new Job(job));
+    })
+
+    jobs.forEach(function(job){
+      $('#jobDisplay').append(job.toHtml());
+    })
+  });
 }
 
 var renderAboutHTML = function(){
@@ -91,23 +88,9 @@ var renderContactHTML = function(){
   $('#contactInfo').addClass('contact').append(filledTemplate);
 }
 
-$('#hamburgerMenu').on('click', function(){
-  $('.navbar').toggle();
-});
-
-$(document).ready(function(){
-  $('section.fillNavItem').hide();
-})
-
-$('.navItem').on('click', function(event){
-  $('section.fillNavItem').hide();
-  var identifier = event.target.id;
-  $('.' + identifier).show()
-})
-
 var initPageView = function(){
   renderAboutHTML();
   renderContactHTML();
-  fetchProjects();
+  Project.fetchProjects();
   fetchJobs();
 }

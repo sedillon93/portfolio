@@ -3,6 +3,11 @@
 var projects = [];
 var jobs = [];
 
+
+/*use reduce to transform array of objects in projects.json into format more suited for table creation
+  for each element (a project object) in the projects array turn it into a tr with each key's value as a td
+*/
+
 let renderPage = (function(){
   function Project(jsonProjData){
     this.projectTitle = jsonProjData.projectTitle,
@@ -20,7 +25,7 @@ let renderPage = (function(){
   }
 
   Project.loadProjects = function (projectData){
-    projectData.forEach(function(project){
+    projectData.map(function(project){
       projects.push(new Project(project));
     })
 
@@ -41,6 +46,7 @@ let renderPage = (function(){
       });
     }
   }
+
   function Job(jsonJobData){
     this.jobTitle = jsonJobData.jobTitle;
     this.employer = jsonJobData.employer;
@@ -56,16 +62,26 @@ let renderPage = (function(){
     return fillJobTemplate(this);
   }
 
-  var fetchJobs = function(){
-    $.get('js/work-exp.json', function(response){
-      response.forEach(function(job){
-        jobs.push(new Job(job));
-      })
+  Job.loadJobs = function (jobData){
+    jobData.map(function(job){
+      jobs.push(new Job(job));
+    })
 
-      jobs.forEach(function(job){
-        $('#jobDisplay').append(job.toHtml());
-      })
+    jobs.forEach(function(job){
+      $('#jobDisplay').append(job.toHtml());
     });
+  }
+
+  Job.fetchJobs = function(){
+    if (localStorage.rawJob){
+      Job.loadJobs(JSON.parse(localStorage.rawJob));
+    }
+    else {
+      $.get(`js/work-exp.json`, function(response){
+        localStorage.setItem('rawJob', JSON.stringify(response));
+        Job.loadJobs(response);
+      });
+    }
   }
 
   var renderAboutHTML = function(){
@@ -91,8 +107,9 @@ let renderPage = (function(){
   var initPageView = function(){
     renderAboutHTML();
     renderContactHTML();
-    fetchJobs();
+    Job.fetchJobs();
     Project.fetchProjects();
   }
+
   return initPageView()
 })();

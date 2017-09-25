@@ -40,19 +40,17 @@ let renderSite = (function(){
     }, []);
   }
 
-  /*trying 
-    addHandlers = function(projectTitle){
-      projectTitle.on('click', function(event){
-        $('li').find('h2 ${}').show();
+  // let addHandlers = function(projectTitle){
+    projectTitle.on('click', function(event){
+      //find the children lis of the projects section
     })
   }
-  */
 
-  Project.addTitleEventHandlers = function(){
-    let array = Project.titlesOnly();
-    array.map(addHandlers)
-    // $('#projectDisplay').append(Project.titlesOnly());
-  }
+  // Project.addTitleEventHandlers = function(){
+  //   let array = Project.titlesOnly();
+  //   array.map(addHandlers)
+  //   $('#projectDisplay').append(Project.titlesOnly());
+  // }
 
   Project.fetchProjects = function(){
     //fix this so that if local storage gets cleared, fetchProjects is called again and things get stored locally; right now just keeps bouncing to the else statement if you clear local storage on the desktop
@@ -129,7 +127,7 @@ let renderSite = (function(){
     renderContactHTML();
     Job.fetchJobs();
     Project.fetchProjects();
-    Project.titleLinks();
+    Project.titlesOnly();
   }
 
   return initPageView()

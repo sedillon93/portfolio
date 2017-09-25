@@ -40,7 +40,7 @@ let renderSite = (function(){
     }, []);
   }
 
-  /*
+  /*trying 
     addHandlers = function(projectTitle){
       projectTitle.on('click', function(event){
         $('li').find('h2 ${}').show();

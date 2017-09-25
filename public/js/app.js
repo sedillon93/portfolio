@@ -3,12 +3,11 @@
 var projects = [];
 var jobs = [];
 
-
-/*use reduce to transform array of objects in projects.json into format more suited for table creation
-  for each element (a project object) in the projects array turn it into a tr with each key's value as a td
+/*
+  use .reduce to turn array of objects into array of project titles & array of job titles which can then be clicked on to show more information
 */
 
-let renderPage = (function(){
+let renderSite = (function(){
   function Project(jsonProjData){
     this.projectTitle = jsonProjData.projectTitle,
     this.startDate = jsonProjData.startDate,
@@ -32,6 +31,27 @@ let renderPage = (function(){
     projects.forEach(function(project){
       $('#projectDisplay').append(project.toHtml());
     });
+  }
+
+  Project.titlesOnly = function(){
+    return projects.reduce(function(allProjectsTitles, project){
+      allProjectsTitles.push(project.projectTitle);
+      return allProjectsTitles;
+    }, []);
+  }
+
+  /*
+    addHandlers = function(projectTitle){
+      projectTitle.on('click', function(event){
+        $('li').find('h2 ${}').show();
+    })
+  }
+  */
+
+  Project.addTitleEventHandlers = function(){
+    let array = Project.titlesOnly();
+    array.map(addHandlers)
+    // $('#projectDisplay').append(Project.titlesOnly());
   }
 
   Project.fetchProjects = function(){
@@ -109,6 +129,7 @@ let renderPage = (function(){
     renderContactHTML();
     Job.fetchJobs();
     Project.fetchProjects();
+    Project.titleLinks();
   }
 
   return initPageView()

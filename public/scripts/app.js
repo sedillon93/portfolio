@@ -1,4 +1,5 @@
 'use strict';
+var globalApp = globalApp || {};
 
 var projects = [];
 var jobs = [];
@@ -7,7 +8,7 @@ var jobs = [];
   use .reduce to turn array of objects into array of project titles & array of job titles which can then be clicked on to show more information
 */
 
-let renderSite = (function(){
+(function(module){
   function Project(jsonProjData){
     this.projectTitle = jsonProjData.projectTitle,
     this.startDate = jsonProjData.startDate,
@@ -58,7 +59,7 @@ let renderSite = (function(){
       Project.loadProjects(JSON.parse(localStorage.rawProject));
     }
     else {
-      $.get(`js/projects.json`, function(response){
+      $.get(`scripts/model/projects.json`, function(response){
         localStorage.setItem('rawProject', JSON.stringify(response));
         Project.loadProjects(response);
       });
@@ -95,7 +96,7 @@ let renderSite = (function(){
       Job.loadJobs(JSON.parse(localStorage.rawJob));
     }
     else {
-      $.get(`js/work-exp.json`, function(response){
+      $.get(`scripts/model/work-exp.json`, function(response){
         localStorage.setItem('rawJob', JSON.stringify(response));
         Job.loadJobs(response);
       });
@@ -130,5 +131,8 @@ let renderSite = (function(){
     Project.titlesOnly();
   }
 
-  return initPageView()
-})();
+  module.Project = Project;
+  module.Job = Job;
+  module.renderContactHTML = renderContactHTML;
+  module.renderAboutHTML = renderAboutHTML;
+})(globalApp);

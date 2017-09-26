@@ -1,14 +1,14 @@
 'use strict';
 var globalApp = globalApp || {};
 
-var projects = [];
-var jobs = [];
-
 /*
   use .reduce to turn array of objects into array of project titles & array of job titles which can then be clicked on to show more information
 */
 
 (function(module){
+  globalApp.projects = [];
+  globalApp.jobs = [];
+
   function Project(jsonProjData){
     this.projectTitle = jsonProjData.projectTitle,
     this.startDate = jsonProjData.startDate,
@@ -26,16 +26,16 @@ var jobs = [];
 
   Project.loadProjects = function (projectData){
     projectData.map(function(project){
-      projects.push(new Project(project));
+      globalApp.projects.push(new Project(project));
     })
 
-    projects.forEach(function(project){
+    globalApp.projects.forEach(function(project){
       $('#projectDisplay').append(project.toHtml());
     });
   }
 
   Project.titlesOnly = function(){
-    return projects.reduce(function(allProjectsTitles, project){
+    return globalApp.projects.reduce(function(allProjectsTitles, project){
       allProjectsTitles.push(project.projectTitle);
       return allProjectsTitles;
     }, []);
@@ -71,10 +71,10 @@ var jobs = [];
 
   Job.loadJobs = function (jobData){
     jobData.map(function(job){
-      jobs.push(new Job(job));
+      globalApp.jobs.push(new Job(job));
     })
 
-    jobs.forEach(function(job){
+    globalApp.jobs.forEach(function(job){
       $('#jobDisplay').append(job.toHtml());
     });
   }

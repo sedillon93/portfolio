@@ -1,7 +1,5 @@
 'use strict';
 
-var pageView = {};
-
 $(document).ready(function(){
   $('section.fillNavItem').hide();
 })
@@ -9,6 +7,8 @@ $(document).ready(function(){
 $('.navItem').on('click', function(event){
   $('section.fillNavItem').hide();
   var identifier = event.target.id;
+  //trying to just show the project titles collected with .titlesOnly in app.js
+  // $('.' + identifier).find('ul li').hide();
   $('.' + identifier).show()
 })
 

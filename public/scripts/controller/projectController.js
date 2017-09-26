@@ -4,7 +4,7 @@ var globalApp = globalApp || {};
 (function(module){
   let projectView = {};
   projectView.showProjects = function(){
-    $('.projects').empty();
+    $('#projectDisplay').empty();
     $('section.fillNavItem').hide();
     module.Project.fetchProjects();
     $('.projects').show();

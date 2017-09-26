@@ -41,10 +41,10 @@ let renderSite = (function(){
   }
 
   // let addHandlers = function(projectTitle){
-    projectTitle.on('click', function(event){
-      //find the children lis of the projects section
-    })
-  }
+  //   projectTitle.on('click', function(event){
+  //     //find the children lis of the projects section
+  //   })
+  // }
 
   // Project.addTitleEventHandlers = function(){
   //   let array = Project.titlesOnly();

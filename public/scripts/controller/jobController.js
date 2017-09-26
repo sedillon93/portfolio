@@ -4,9 +4,9 @@ var globalApp = globalApp || {};
 (function(module){
   let jobView = {};
   jobView.showJobs = function(){
-    globalApp.jobs = [];
-    $('#jobDisplay').empty();
-    globalApp.Job.fetchJobs();
+    if (!globalApp.jobs.length){
+      globalApp.Job.fetchJobs();
+    }
     $('section.fillNavItem').hide();
     $('.work').show();
   }

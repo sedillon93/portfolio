@@ -1,13 +1,14 @@
 'use strict';
-
-var projects = [];
-var jobs = [];
+var globalApp = globalApp || {};
 
 /*
   use .reduce to turn array of objects into array of project titles & array of job titles which can then be clicked on to show more information
 */
 
-let renderSite = (function(){
+(function(module){
+  globalApp.projects = [];
+  globalApp.jobs = [];
+
   function Project(jsonProjData){
     this.projectTitle = jsonProjData.projectTitle,
     this.startDate = jsonProjData.startDate,
@@ -25,32 +26,20 @@ let renderSite = (function(){
 
   Project.loadProjects = function (projectData){
     projectData.map(function(project){
-      projects.push(new Project(project));
+      globalApp.projects.push(new Project(project));
     })
 
-    projects.forEach(function(project){
+    globalApp.projects.forEach(function(project){
       $('#projectDisplay').append(project.toHtml());
     });
   }
 
   Project.titlesOnly = function(){
-    return projects.reduce(function(allProjectsTitles, project){
+    return globalApp.projects.reduce(function(allProjectsTitles, project){
       allProjectsTitles.push(project.projectTitle);
       return allProjectsTitles;
     }, []);
   }
-
-  // let addHandlers = function(projectTitle){
-  //   projectTitle.on('click', function(event){
-  //     //find the children lis of the projects section
-  //   })
-  // }
-
-  // Project.addTitleEventHandlers = function(){
-  //   let array = Project.titlesOnly();
-  //   array.map(addHandlers)
-  //   $('#projectDisplay').append(Project.titlesOnly());
-  // }
 
   Project.fetchProjects = function(){
     //fix this so that if local storage gets cleared, fetchProjects is called again and things get stored locally; right now just keeps bouncing to the else statement if you clear local storage on the desktop
@@ -58,7 +47,7 @@ let renderSite = (function(){
       Project.loadProjects(JSON.parse(localStorage.rawProject));
     }
     else {
-      $.get(`js/projects.json`, function(response){
+      $.get(`scripts/model/projects.json`, function(response){
         localStorage.setItem('rawProject', JSON.stringify(response));
         Project.loadProjects(response);
       });
@@ -82,10 +71,10 @@ let renderSite = (function(){
 
   Job.loadJobs = function (jobData){
     jobData.map(function(job){
-      jobs.push(new Job(job));
+      globalApp.jobs.push(new Job(job));
     })
 
-    jobs.forEach(function(job){
+    globalApp.jobs.forEach(function(job){
       $('#jobDisplay').append(job.toHtml());
     });
   }
@@ -95,7 +84,7 @@ let renderSite = (function(){
       Job.loadJobs(JSON.parse(localStorage.rawJob));
     }
     else {
-      $.get(`js/work-exp.json`, function(response){
+      $.get(`scripts/model/work-exp.json`, function(response){
         localStorage.setItem('rawJob', JSON.stringify(response));
         Job.loadJobs(response);
       });
@@ -130,5 +119,8 @@ let renderSite = (function(){
     Project.titlesOnly();
   }
 
-  return initPageView()
-})();
+  module.Project = Project;
+  module.Job = Job;
+  module.renderContactHTML = renderContactHTML;
+  module.renderAboutHTML = renderAboutHTML;
+})(globalApp);

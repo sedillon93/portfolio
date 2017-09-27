@@ -12,6 +12,7 @@
     <script src="https://use.fontawesome.com/db2379db22.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.10/handlebars.min.js"></script>
+    <script src="https://cdn.rawgit.com/visionmedia/page.js/master/page.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Amatic+SC:700" rel="stylesheet">
     <script id="aboutTemplate" type="text/x-handlebars-template">
       <h2>{{ greeting }}</h2>
@@ -44,11 +45,11 @@
     <div class="topBar">
       <i class="fa fa-bars" aria-hidden="true" id="hamburgerMenu"></i>
       <ul class="navbar">
-        <li class="navItem" id="home">Home</li>
-        <li class="navItem" id="about">About</li>
-        <li class="navItem" id="projects">My Projects</li>
-        <li class="navItem" id="work">Work Experience</li>
-        <li class="navItem" id="contact">Contact</li>
+        <li class="navItem" id="home"><a href="/">Home</a></li>
+        <li class="navItem" id="about"><a href="/about">About</a></li>
+        <li class="navItem" id="projects"><a href="/projects">My Projects</a></li>
+        <li class="navItem" id="work"><a href="/jobs">Work Experience</a></li>
+        <li class="navItem" id="contact"><a href="/contact">Contact</a></li>
       </ul>
       <ul class="connect">
         <li class="icon"><a href="https://www.linkedin.com/in/shannon-dillon-14b05464/"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a></li>
@@ -71,8 +72,11 @@
     </section>
     <section class="fillNavItem" id="contactInfo"></section>
   </body>
-  <script src="js/projects.json"></script>
-  <script src="js/work-exp.json"></script>
-  <script src="js/pageView.js"></script>
-  <script src="js/app.js"></script>
+  <script src="scripts/app.js"></script>
+  <script src="scripts/controller/mainPageController.js"></script>
+  <script src="scripts/controller/aboutController.js"></script>
+  <script src="scripts/controller/projectController.js"></script>
+  <script src="scripts/controller/jobController.js"></script>
+  <script src="scripts/controller/contactController.js"></script>
+  <script src="scripts/controller/routes.js"></script>
 </html>

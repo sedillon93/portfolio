@@ -101,16 +101,6 @@ var globalApp = globalApp || {};
     $('#aboutInfo').addClass('about').append($filledTemplate);
   }
 
-  var renderContactHTML = function(){
-    var contactHTML = $('#contactTemplate').html();
-    var $fillContactTemplate = Handlebars.compile(contactHTML);
-    var filledTemplate = $fillContactTemplate({
-      phone: `(215)-806-8039`,
-      email: `sedillon93@gmail.com`
-    });
-    $('#contactInfo').addClass('contact').append(filledTemplate);
-  }
-
   var initPageView = function(){
     renderAboutHTML();
     renderContactHTML();
@@ -121,6 +111,5 @@ var globalApp = globalApp || {};
 
   module.Project = Project;
   module.Job = Job;
-  module.renderContactHTML = renderContactHTML;
   module.renderAboutHTML = renderAboutHTML;
 })(globalApp);

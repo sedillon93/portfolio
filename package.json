@@ -18,6 +18,6 @@
   "homepage": "https://github.com/sedillon93/portfolio#readme",
   "dependencies": {
     "express": "^4.15.4",
-    "express-request-proxy": "^2.0.0",
+    "express-request-proxy": "^2.0.0"
   }
 }

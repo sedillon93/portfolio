@@ -1,6 +1,10 @@
 'use strict';
 var globalApp = globalApp || {};
 
-(function(){
-  //make a get request to github using my token to get all the repos
-})();
+(function(module){
+  //make a get request to github to get all the repos
+  $.get('/github/user/repos', function(data){
+    module.repos = data;
+    console.log(module.repos);
+  })
+})(globalApp);

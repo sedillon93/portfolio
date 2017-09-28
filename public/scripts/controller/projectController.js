@@ -6,6 +6,7 @@ var globalApp = globalApp || {};
   projectView.showProjects = function(){
     if (!globalApp.projects.length){
       module.Project.fetchProjects();
+      module.Project.titlesOnly();
     }
     $('section.fillNavItem').hide();
     $('.projects').show();

@@ -1,13 +1,8 @@
 'use strict';
 var globalApp = globalApp || {};
 
-/*
-  use .reduce to turn array of objects into array of project titles & array of job titles which can then be clicked on to show more information
-*/
-
 (function(module){
   globalApp.projects = [];
-  globalApp.jobs = [];
 
   function Project(jsonProjData){
     this.projectTitle = jsonProjData.projectTitle,
@@ -53,52 +48,5 @@ var globalApp = globalApp || {};
       });
     }
   }
-
-  function Job(jsonJobData){
-    this.jobTitle = jsonJobData.jobTitle;
-    this.employer = jsonJobData.employer;
-    this.startDate = jsonJobData.startDate;
-    this.endDate = jsonJobData.endDate;
-    this.jobDescription = jsonJobData.jobDescription;
-  }
-
-  Job.prototype.toHtml = function(){
-    var jobHTML = $('#jobTemplate').html();
-    var fillJobTemplate = Handlebars.compile(jobHTML);
-    $('#jobInfo').addClass('work');
-    return fillJobTemplate(this);
-  }
-
-  Job.loadJobs = function (jobData){
-    jobData.map(function(job){
-      globalApp.jobs.push(new Job(job));
-    })
-
-    globalApp.jobs.forEach(function(job){
-      $('#jobDisplay').append(job.toHtml());
-    });
-  }
-
-  Job.fetchJobs = function(){
-    if (localStorage.rawJob){
-      Job.loadJobs(JSON.parse(localStorage.rawJob));
-    }
-    else {
-      $.get(`scripts/model/work-exp.json`, function(response){
-        localStorage.setItem('rawJob', JSON.stringify(response));
-        Job.loadJobs(response);
-      });
-    }
-  }
-
-  var initPageView = function(){
-    renderAboutHTML();
-    renderContactHTML();
-    Job.fetchJobs();
-    Project.fetchProjects();
-    Project.titlesOnly();
-  }
-
   module.Project = Project;
-  module.Job = Job;
-})(globalApp);
+})(globalApp)

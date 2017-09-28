@@ -3,10 +3,12 @@ var globalApp = globalApp || {};
 
 (function(module){
   var repos = [];
-  //make a get request to github to get all the repos
   $.get('/github/user/repos')
     .then(function(data){
       repos = data;
+    })
+    .then(function(err){
+      console.error('Repos are not available',err);
     })
   module.repos = repos;
 })(globalApp);

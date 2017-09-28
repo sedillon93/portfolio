@@ -40,6 +40,9 @@
       <p>Phone: {{ phone }}</p>
       <p>Email: {{ email }}</p>
     </script>
+    <script id="repoTemplate" type="text/x-handlebars-template">
+      <li>{{ repoName }}</li>
+    </script>
   </head>
   <body>
     <div class="topBar">
@@ -71,11 +74,13 @@
       </ul>
     </section>
     <section class="fillNavItem" id="contactInfo"></section>
+    <section class="fillNavItem" id="gitHubRepos"></section>
   </body>
   <script src="scripts/view/contactView.js"></script>
   <script src="scripts/view/aboutView.js"></script>
   <script src="scripts/view/projectView.js"></script>
   <script src="scripts/view/jobView.js"></script>
+  <script src="scripts/view/repoView.js"></script>
   <script src="scripts/controller/mainPageController.js"></script>
   <script src="scripts/controller/aboutController.js"></script>
   <script src="scripts/controller/projectController.js"></script>

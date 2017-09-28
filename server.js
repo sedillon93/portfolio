@@ -18,6 +18,10 @@ app.get('/', function(request, response){
   response.sendFile('index.html', {root: './public'})
 })
 
+app.get('/*', function(request, response){
+  response.sendFile('index.html', {root: './public'});
+})
+
 app.listen(PORT, function(){
   console.log(`running on port: ${PORT}`);
 });

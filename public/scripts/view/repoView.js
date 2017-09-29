@@ -7,7 +7,7 @@ var globalApp = globalApp || {};
 
   module.appendRepos = function() {
     $('#projectDisplay').append(
-        globalApp.repos.map($repoTemplate)
+        globalApp.repos.all.map($repoTemplate)
     );
   };
 })(globalApp)

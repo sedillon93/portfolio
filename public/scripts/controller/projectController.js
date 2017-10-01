@@ -3,13 +3,14 @@ var globalApp = globalApp || {};
 
 (function(module){
   let projectView = {};
-  projectView.showProjects = function(){
+  projectView.initProjects = function(){
     if (!globalApp.projects.length){
-      module.Project.fetchProjects();
-      module.Project.titlesOnly();
+      globalApp.Project.fetchProjects();
+      globalApp.Project.titlesOnly();
     }
     $('section.fillNavItem').hide();
     $('.projects').show();
+    globalApp.repos.getRepos(globalApp.appendRepos);
   }
   module.projectView = projectView;
 })(globalApp);
